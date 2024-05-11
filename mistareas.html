@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Tasks App</title>
+</head>
+
+<body>
+    <div id="app">
+        <nav class="nav">
+            <ul>
+                <li><a href="/">Index</a></li>
+                <li><a href="./mistareas.html">Tasks</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+        </nav>
+        <h1 class="text-center texto-fino">Your Tasks</h1>
+        <input type="search" class="find" v-model="find" placeholder="Find Tasks">
+        <div class="find-tasks">
+            <article class="find-tasks__article" v-for="task in filteredTasks">
+                <h2 class="text-center">{{task.title}}</h2>
+                <img v-if="task.image" class="tasks-image" :src="task.image">
+                <p>{{task.description}}</p>
+                <p>Date: {{ formatDate(task.date) }}</p>
+            </article>
+        </div>
+    </div>
+    <script src="./assets/js/index.js"></script>
+</body>
+
+</html>
